@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const sequelize = require("./config/dbConfig");
 
 const studentMethods = require("./data_access/studentRepo");

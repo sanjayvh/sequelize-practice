@@ -51,11 +51,13 @@ exports.findAll1 = async () => {
                 subscribed_to_wittcode: true,
             },
         },
+        raw: true
     });
     
-    results.forEach((element) => {
-        console.log(element.toJSON());
-    });
+    console.log(results);
+    // results.forEach((element) => {
+    //     console.log(element.toJSON());
+    // });
 };
 
 exports.findAll2 = async () => {
