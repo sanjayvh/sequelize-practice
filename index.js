@@ -1,46 +1,18 @@
-const Sequelize = require("sequelize");
+require("dotenv").config();
 
-const sequelize = new Sequelize("sequelize_db", "root", "Sanjay@678", {
-    host: "localhost",
-    dialect: "mysql",
-    define: {
-        freezeTableName: true,
-        timestamps: false,
-    }
-});
+const sequelize = require("./config/dbConfig");
+
+const studentMethods = require("./data_access/studentRepo");
+
+// studentMethods.createStudents();
+studentMethods.findAll1();
+studentMethods.findAll2();
 
 sequelize
     .sync()
     .then(() => {
-        console.log("Connection Successful");
+        console.log("Connected to database successfully");
     })
     .catch((err) => {
-        console.log("Unable to connect to database" + err.message);
+        console.log("Unable to sync Student Table" + err.message);
     });
-
-const User = sequelize.define('user', {
-    userId: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    username: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        // primaryKey: true
-    },
-    password: {
-        type: Sequelize.STRING,
-        // allowNull: false
-    },
-    age: {
-        type: Sequelize.INTEGER,
-        defaultValue: 26
-    },
-    isVerified: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: 0
-    }
-});
-
-console.log(sequelize.models);
