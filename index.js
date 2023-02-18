@@ -5,6 +5,12 @@ const studentMethods = require("./data_access/studentRepo");
 // studentMethods.createStudents();
 studentMethods.findAll1();
 studentMethods.findAll2();
+studentMethods.findByPk();
+studentMethods.findOne();
+studentMethods.findAndCountAll();
+
+//TODO: try this later
+//studentMethods.findOrCreate();
 
 sequelize
     .sync()
