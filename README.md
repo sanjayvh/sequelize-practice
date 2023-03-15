@@ -1,1 +1,1 @@
-# sequelize-practice
+# sequelize
